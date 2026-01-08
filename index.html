@@ -110,16 +110,7 @@
         const message = document.getElementById("message");
 
         if (enteredCode === correctCode) {
-            message.innerHTML = `
-                <div class="success">
-                    <h2>✨ Das Tor öffnet sich ✨</h2>
-                    <p>Du hast Ritter Momo bis zum Ende begleitet.</p>
-                    <p>
-                        👉 <a href="https://DEIN-LINK-HIER" target="_blank">
-                        Zur finalen Belohnung
-                        </a>
-                    </p>
-                </div>`;
+    window.location.href = "belohnung.html";
         } else {
             message.innerHTML = `
                 <div class="error">
