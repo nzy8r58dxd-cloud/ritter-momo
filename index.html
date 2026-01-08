@@ -3,64 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <title>Das letzte Tor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
     body {
+        margin: 0;
+        height: 100vh;
         font-family: "Georgia", serif;
-        background: radial-gradient(circle at top, #1b1b1b, #000);
-        color: #eee;
+        background: radial-gradient(circle at top, #1e1e1e, #000000);
+        color: #f0f0f0;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
-        margin: 0;
     }
 
     .container {
-        background: rgba(0,0,0,0.7);
-        padding: 40px;
+        background: rgba(0, 0, 0, 0.75);
         border: 2px solid #555;
-        border-radius: 12px;
+        border-radius: 14px;
+        padding: 40px 30px;
         text-align: center;
-        box-shadow: 0 0 25px #000;
-        max-width: 400px;
+        max-width: 420px;
+        width: 90%;
+        box-shadow: 0 0 40px rgba(0,0,0,0.8);
     }
 
     h1 {
+        margin-top: 0;
         margin-bottom: 10px;
+        font-size: 1.8rem;
+        letter-spacing: 1px;
     }
 
     p {
         font-size: 0.95rem;
         color: #ccc;
+        margin-bottom: 25px;
     }
 
     .lock {
         display: flex;
         justify-content: center;
         gap: 15px;
-        margin: 25px 0;
+        margin-bottom: 25px;
     }
 
-    input[type="number"] {
-        width: 60px;
-        height: 70px;
-        font-size: 2rem;
+    .lock input {
+        width: 65px;
+        height: 75px;
+        font-size: 2.2rem;
         text-align: center;
         background: #111;
         color: #fff;
         border: 2px solid #666;
-        border-radius: 8px;
+        border-radius: 10px;
+        outline: none;
+    }
+
+    .lock input:focus {
+        border-color: #aaa;
     }
 
     button {
-        margin-top: 15px;
-        padding: 10px 25px;
+        padding: 12px 30px;
         font-size: 1rem;
+        font-family: inherit;
         background: #444;
         color: #fff;
         border: none;
-        border-radius: 6px;
+        border-radius: 8px;
         cursor: pointer;
+        transition: background 0.2s;
     }
 
     button:hover {
@@ -70,10 +83,7 @@
     .message {
         margin-top: 20px;
         min-height: 40px;
-    }
-
-    .success {
-        color: #9cff9c;
+        font-size: 0.95rem;
     }
 
     .error {
@@ -81,45 +91,17 @@
     }
 </style>
 </head>
+
 <body>
 
 <div class="container">
     <h1>Das letzte Tor</h1>
-    <p>Nur wer den richtigen Zahlencode kennt,<br> darf die finale Belohnung sehen.</p>
+    <p>
+        Nur wer den richtigen Zahlencode kennt,<br>
+        darf das Schloss des schwarzen Ritters betreten.
+    </p>
 
     <div class="lock">
-        <input type="number" min="0" max="9" id="d1">
-        <input type="number" min="0" max="9" id="d2">
-        <input type="number" min="0" max="9" id="d3">
-    </div>
-
-    <button onclick="unlock()">Entriegeln</button>
-
-    <div class="message" id="message"></div>
-</div>
-
-<script>
-    const correctCode = "583"; // <-- HIER Code ändern
-
-    function unlock() {
-        const d1 = document.getElementById("d1").value;
-        const d2 = document.getElementById("d2").value;
-        const d3 = document.getElementById("d3").value;
-
-        const enteredCode = d1 + d2 + d3;
-        const message = document.getElementById("message");
-
-        if (enteredCode === correctCode) {
-    window.location.href = "belohnung.html";
-        } else {
-            message.innerHTML = `
-                <div class="error">
-                    ❌ Der Code ist falsch.<br>
-                    Der Mechanismus bleibt verschlossen.
-                </div>`;
-        }
-    }
-</script>
-
-</body>
-</html>
+        <input type="number" min="0" max="9" id="d1" inputmode="numeric">
+        <input type="number" min="0" max="9" id="d2" inputmode="numeric">
+        <input type="number" min="0" max="9" id="d3" inputmode="num
