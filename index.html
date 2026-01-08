@@ -104,4 +104,34 @@
     <div class="lock">
         <input type="number" min="0" max="9" id="d1" inputmode="numeric">
         <input type="number" min="0" max="9" id="d2" inputmode="numeric">
-        <input type="number" min="0" max="9" id="d3" inputmode="num
+        <input type="number" min="0" max="9" id="d3" inputmode="numeric">
+    </div>
+
+    <button onclick="unlock()">Entriegeln</button>
+
+    <div class="message" id="message"></div>
+</div>
+
+<script>
+    // >>> HIER den richtigen Code eintragen <<<
+    const correctCode = "583";   // z. B. 187 oder 583
+
+    function unlock() {
+        const d1 = document.getElementById("d1").value;
+        const d2 = document.getElementById("d2").value;
+        const d3 = document.getElementById("d3").value;
+
+        const enteredCode = d1 + d2 + d3;
+        const message = document.getElementById("message");
+
+        if (enteredCode === correctCode) {
+            // Weiterleitung zur Belohnungsseite
+            window.location.href = "belohnung.html";
+        } else {
+            message.innerHTML = "<span class='error'>❌ Der Mechanismus bleibt verschlossen.</span>";
+        }
+    }
+</script>
+
+</body>
+</html>
